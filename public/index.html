@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BlazeSandbox fixture</title>
+    <!-- Relative paths on purpose: the app is served under /s/{id}/, so an
+         absolute /styles.css would resolve against the service host and 404. -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <p class="eyebrow">BlazeSandbox fixture</p>
+      <h1>Sandbox is live</h1>
+      <p class="lede">
+        This page is served from inside an ephemeral container. If you can read it, the
+        provisioner finished and the reverse proxy is forwarding.
+      </p>
+
+      <dl class="facts">
+        <div class="fact">
+          <dt>Build marker</dt>
+          <dd id="build-marker" data-testid="build-marker">{{BUILD_MARKER}}</dd>
+        </div>
+        <div class="fact">
+          <dt>Built at</dt>
+          <dd id="built-at" data-testid="built-at">{{BUILT_AT}}</dd>
+        </div>
+        <div class="fact">
+          <dt>WebSocket</dt>
+          <dd id="ws-status" data-testid="ws-status">connecting…</dd>
+        </div>
+      </dl>
+
+      <p class="hint">
+        Edit <code>build.json</code> and call <code>sandbox_up</code> again: the marker above
+        changes on this same URL.
+      </p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
